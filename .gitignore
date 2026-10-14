@@ -1,0 +1,10 @@
+.env
+.env.*
+!.env.example
+**/target/
+**/.m2repo/
+**/node_modules/
+**/dist/
+*.log
+
+oracleJdk-27/
