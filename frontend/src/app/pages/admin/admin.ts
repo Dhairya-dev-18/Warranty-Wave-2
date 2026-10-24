@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 export interface AdminStats {
   totalCustomers: number;
   activePlans: number;
+  activeClaims: number;
+  serviceStatus: string;
 }
 
 export interface UserSummary {
@@ -58,13 +60,13 @@ export interface WarrantyPlanItem {
         </div>
         <div class="card stat-card">
           <span class="stat-label">Claims in Queue</span>
-          <strong class="stat-value">3</strong>
+          <strong class="stat-value">{{ stats()?.activeClaims ?? 0 }}</strong>
           <span class="stat-trend text-amber">Requires Adjuster Review</span>
         </div>
         <div class="card stat-card">
           <span class="stat-label">Service API Health</span>
-          <strong class="stat-value text-green">100%</strong>
-          <span class="stat-trend text-green">All services operational</span>
+          <strong class="stat-value text-green">{{ stats()?.serviceStatus ?? 'Unknown' }}</strong>
+          <span class="stat-trend text-green">API and database reachable</span>
         </div>
       </div>
 
